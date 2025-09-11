@@ -45,17 +45,10 @@ const Terms = () => {
               </p>
             </section>
 
-            <section>
-              <h3 className="text-xl font-bold text-primary mb-4">4. Insurance and Liability</h3>
-              <p>
-                Declutter Direct is fully insured and bonded. We exercise reasonable care in 
-                handling your belongings. Our liability is limited to the replacement value of 
-                damaged items, not to exceed our total service fee.
-              </p>
-            </section>
+           
 
             <section>
-              <h3 className="text-xl font-bold text-primary mb-4">5. Disposal and Donations</h3>
+              <h3 className="text-xl font-bold text-primary mb-4">4. Disposal and Donations</h3>
               <p>
                 Items designated for disposal or donation become the property of Declutter Direct. 
                 We make reasonable efforts to donate usable items to local charities and dispose 
@@ -64,7 +57,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-primary mb-4">6. Cancellation Policy</h3>
+              <h3 className="text-xl font-bold text-primary mb-4">5. Cancellation Policy</h3>
               <p>
                 Services may be cancelled up to 24 hours before the scheduled appointment without 
                 penalty. Cancellations with less than 24 hours notice may incur a $50 service fee.
@@ -72,7 +65,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-primary mb-4">7. Hazardous Materials</h3>
+              <h3 className="text-xl font-bold text-primary mb-4">6. Hazardous Materials</h3>
               <p>
                 We do not handle hazardous materials including paints, chemicals, asbestos, or 
                 other dangerous substances. Clients must arrange separate disposal for such items.
@@ -80,7 +73,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-primary mb-4">8. Satisfaction Guarantee</h3>
+              <h3 className="text-xl font-bold text-primary mb-4">7. Satisfaction Guarantee</h3>
               <p>
                 We stand behind our work. If you're not satisfied with our service, please contact 
                 us within 48 hours of completion and we'll work to resolve any issues.
@@ -88,7 +81,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-primary mb-4">9. Privacy</h3>
+              <h3 className="text-xl font-bold text-primary mb-4">8. Privacy</h3>
               <p>
                 We respect your privacy and will not share your personal information with third 
                 parties except as necessary to provide our services (such as donation pickups).
@@ -96,7 +89,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h3 className="text-xl font-bold text-primary mb-4">10. Contact Information</h3>
+              <h3 className="text-xl font-bold text-primary mb-4">9. Contact Information</h3>
               <p>
                 For questions about these terms or our services, contact us at (613) 555-0199 
                 or info@declutterdirect.ca.
