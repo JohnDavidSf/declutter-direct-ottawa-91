@@ -40,10 +40,13 @@ const Navigation = () => {
             <a href="tel:613-555-0199">
               <Button variant="outline" size="sm" className="hidden sm:flex">
                 <Phone className="w-4 h-4 mr-2" />
-                (613) 555-0199
+                (613) 555-5555
               </Button>
             </a>
-            <Link to="/contact">
+            <Link 
+  to="/contact" 
+  onClick={() => window.scrollTo(0, 0)}
+>
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
                 Free Quote
               </Button>

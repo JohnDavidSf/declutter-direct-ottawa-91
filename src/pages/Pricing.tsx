@@ -78,7 +78,11 @@ const Pricing = () => {
                   </div>
                   
                   <div className="mt-8">
-                    <Link to="/contact">
+                  <Link 
+  to="/contact" 
+  onClick={() => window.scrollTo(0, 0)}
+>
+                    
                       <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
                         Get Your Free Quote Today
                       </Button>
@@ -205,7 +209,7 @@ const Pricing = () => {
             <a href="tel:613-555-0199">
               <Button size="lg" variant="outline">
                 <Phone className="w-4 h-4 mr-2" />
-                Call Now: (613) 555-0199
+                Call Now: (613) 555-5555
               </Button>
             </a>
           </div>

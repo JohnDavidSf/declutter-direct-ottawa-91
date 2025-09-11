@@ -111,7 +111,7 @@ const Contact = () => {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="(613) 555-0199"
+                    placeholder="(613) 555-5555"
                   />
                 </div>
 
@@ -245,11 +245,11 @@ const Contact = () => {
                 </p>
                 <a href="tel:613-555-0199" className="block">
                   <Button size="lg" variant="secondary" className="w-full text-xl font-bold">
-                    (613) 555-0199
+                    (613) 555-5555
                   </Button>
                 </a>
                 <p className="text-sm mt-3 opacity-75">
-                  //Available Mon-Sat, 8AM-6PM
+                 Available Anytime
                 </p>
               </CardContent>
             </Card>
@@ -264,7 +264,7 @@ const Contact = () => {
                   <Phone className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-muted-foreground">(613) 555-0199</p>
+                    <p className="text-muted-foreground">(613) 555-5555</p>
                   </div>
                 </div>
 
@@ -292,9 +292,8 @@ const Contact = () => {
                   <div>
                     <p className="font-medium">Business Hours</p>
                     <p className="text-muted-foreground">
-                      Monday - Friday: 8:00 AM - 6:00 PM<br />
-                      Saturday: 8:00 AM - 4:00 PM<br />
-                      Sunday: Closed
+                    8:00 AM - 8:00 PM
+                      
                     </p>
                   </div>
                 </div>

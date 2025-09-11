@@ -23,7 +23,10 @@ const Home = () => {
                 Professional garage cleanout service in Ottawa-Gatineau. 
                 We'll transform your cluttered garage into an organized space you'll love.
               </p>
-              <Link to="/contact">
+              <Link 
+  to="/contact" 
+  onClick={() => window.scrollTo(0, 0)}
+>
                 <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-hero">
                   Get Your Free Quote – Flat Fee Guarantee
                 </Button>
@@ -151,7 +154,10 @@ const Home = () => {
             Join hundreds of satisfied homeowners in Ottawa-Gatineau who've transformed 
             their garages with our professional service.
           </p>
-          <Link to="/contact">
+          <Link 
+  to="/contact" 
+  onClick={() => window.scrollTo(0, 0)}
+>
             <Button size="lg" variant="secondary" className="shadow-hero">
               Get Your Free Quote Today
             </Button>

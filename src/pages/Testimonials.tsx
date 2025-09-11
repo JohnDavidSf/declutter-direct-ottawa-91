@@ -10,7 +10,7 @@ const Testimonials = () => {
       location: "Kanata, ON",
       rating: 5,
       text: "I can't believe the transformation! My garage went from a disaster zone to perfectly organized in just one day. The team was professional, respectful, and worked so efficiently. The flat fee pricing was exactly as quoted – no surprises. I can finally park my car in the garage again!",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face"
+      image: "https://plus.unsplash.com/premium_photo-1682437826626-044d1234806d?q=80&w=400&h=400&fit=crop&crop=face"
     },
     {
       name: "Michael Chen",
@@ -36,10 +36,12 @@ const Testimonials = () => {
   ];
 
   const stats = [
-   
+    { number: "Flat Fee", label: "No Hidden Costs" },
     { number: "98%", label: "Satisfaction Rate" },
-    { number: "1 Day", label: "Average Completion" },
-    { number: "5★", label: "Average Rating" }
+    { number: "5★", label: "Average Rating" },
+    { number: "1 Day", label: "Average Completion" }
+    
+    
   ];
 
   return (
@@ -57,16 +59,17 @@ const Testimonials = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {stats.map((stat, index) => (
-            <Card key={index} className="text-center shadow-card">
-              <CardContent className="pt-8 pb-6">
-                <div className="text-4xl font-bold text-accent mb-2">{stat.number}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+  {stats.map((stat, index) => (
+    <Card key={index} className="text-center shadow-card">
+      <CardContent className="pt-8 pb-6">
+        <div className="text-4xl font-bold text-accent mb-2">{stat.number}</div>
+        <div className="text-muted-foreground">{stat.label}</div>
+      </CardContent>
+    </Card>
+  ))}
+</div>
+
 
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">

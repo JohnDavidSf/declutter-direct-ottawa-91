@@ -201,11 +201,14 @@ const Services = () => {
             Transform your garage with our professional service. 
             Get your free quote today with our flat fee guarantee.
           </p>
-          <Link to="/contact">
-            <Button size="lg" variant="secondary" className="shadow-hero">
-              Get Your Free Quote
-            </Button>
-          </Link>
+          <Link 
+  to="/contact" 
+  onClick={() => window.scrollTo(0, 0)}
+>
+  <Button size="lg" variant="secondary" className="shadow-hero">
+    Get Your Free Quote
+  </Button>
+</Link>
         </div>
       </div>
     </div>

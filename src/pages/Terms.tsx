@@ -91,7 +91,7 @@ const Terms = () => {
             <section>
               <h3 className="text-xl font-bold text-primary mb-4">9. Contact Information</h3>
               <p>
-                For questions about these terms or our services, contact us at (613) 555-0199 
+                For questions about these terms or our services, contact us at (613) 555-5555 
                 or info@declutterdirect.ca.
               </p>
             </section>
