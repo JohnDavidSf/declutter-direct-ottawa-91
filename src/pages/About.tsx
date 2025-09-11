@@ -26,7 +26,7 @@ const About = () => {
             </h2>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                Founded in 2020, Declutter Direct was born from a simple observation: 
+                Founded in 2023, Declutter Direct was born from a simple observation: 
                 most homeowners in Ottawa-Gatineau had garages that served as everything 
                 except what they were designed for – parking cars.
               </p>
@@ -37,7 +37,7 @@ const About = () => {
                 garage organization.
               </p>
               <p>
-                Today, we've helped over 500 families transform their garages from 
+                Today, we've helped many families transform their garages from 
                 storage nightmares into functional, organized spaces they actually 
                 want to use. Our professional team combines efficiency with care, 
                 ensuring your belongings are treated with respect while we work 

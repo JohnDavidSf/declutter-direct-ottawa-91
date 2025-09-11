@@ -36,7 +36,7 @@ const Testimonials = () => {
   ];
 
   const stats = [
-    { number: "500+", label: "Happy Customers" },
+   
     { number: "98%", label: "Satisfaction Rate" },
     { number: "1 Day", label: "Average Completion" },
     { number: "5★", label: "Average Rating" }
@@ -163,11 +163,14 @@ const Testimonials = () => {
             Experience the same professional service and amazing transformation 
             that our customers rave about. Get your free quote today!
           </p>
-          <Link to="/contact">
-            <Button size="lg" variant="secondary" className="shadow-hero">
-              Get Your Free Quote
-            </Button>
-          </Link>
+          <Link 
+  to="/contact" 
+  onClick={() => window.scrollTo(0, 0)}
+>
+  <Button size="lg" variant="secondary" className="shadow-hero">
+    Get Your Free Quote
+  </Button>
+</Link>
         </div>
       </div>
     </div>
