@@ -73,7 +73,7 @@ const About = () => {
                 <Shield className="w-12 h-12 text-accent mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-3">Trustworthy</h3>
                 <p className="text-muted-foreground">
-                  Fully insured and bonded. Your property and belongings 
+                  Fully reliable and dependable. Your property and belongings 
                   are in safe hands with our professional team.
                 </p>
               </CardContent>
@@ -120,7 +120,7 @@ const About = () => {
             Meet Our Team
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            Our professional organizers are trained, insured, and passionate about 
+            Our professional organizers are trained, reliable, and passionate about 
             helping homeowners create functional spaces. Each team member brings 
             years of experience and a commitment to excellence.
           </p>

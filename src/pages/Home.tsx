@@ -123,7 +123,7 @@ const Home = () => {
                 <CheckCircle className="w-12 h-12 text-accent mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-2">Professional Team</h3>
                 <p className="text-muted-foreground">
-                  Trusted, reliable, and fully insured professionals.
+                  Trusted, reliable, and fully dependable professionals.
                 </p>
               </CardContent>
             </Card>

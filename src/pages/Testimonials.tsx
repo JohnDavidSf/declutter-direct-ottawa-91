@@ -119,15 +119,7 @@ const Testimonials = () => {
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="bg-accent text-accent-foreground w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Quote className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Trusted & Reliable</h3>
-              <p className="text-muted-foreground">
-                Fully insured, bonded, and committed to treating your home with respect.
-              </p>
-            </div>
+           
 
             <div className="text-center">
               <div className="bg-accent text-accent-foreground w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
