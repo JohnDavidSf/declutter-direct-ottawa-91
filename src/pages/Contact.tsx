@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock, CheckCircle } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, CheckCircle, Upload, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -14,15 +14,19 @@ const Contact = () => {
     address: "",
     message: ""
   });
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const { toast } = useToast();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const fileCount = selectedFiles.length;
+    const fileText = fileCount > 0 ? ` with ${fileCount} photo${fileCount > 1 ? 's' : ''}` : '';
     toast({
       title: "Quote Request Received!",
-      description: "We'll contact you within 24 hours to schedule your free consultation.",
+      description: `We'll contact you within 24 hours to schedule your free consultation${fileText}.`,
     });
     setFormData({ name: "", phone: "", email: "", address: "", message: "" });
+    setSelectedFiles([]);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -30,6 +34,29 @@ const Contact = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files || []);
+    const validFiles = files.filter(file => {
+      const isValidType = file.type.startsWith('image/');
+      const isValidSize = file.size <= 10 * 1024 * 1024; // 10MB limit
+      return isValidType && isValidSize;
+    });
+    
+    if (validFiles.length !== files.length) {
+      toast({
+        title: "Invalid Files",
+        description: "Please select only image files under 10MB each.",
+        variant: "destructive"
+      });
+    }
+    
+    setSelectedFiles(prev => [...prev, ...validFiles].slice(0, 5)); // Max 5 files
+  };
+
+  const removeFile = (index: number) => {
+    setSelectedFiles(prev => prev.filter((_, i) => i !== index));
   };
 
   return (
@@ -116,6 +143,65 @@ const Contact = () => {
                     onChange={handleChange}
                     placeholder="Your address in Ottawa-Gatineau area"
                   />
+                </div>
+
+                <div>
+                  <label htmlFor="photos" className="block text-sm font-medium text-foreground mb-2">
+                    Photos of Your Garage (Optional)
+                  </label>
+                  <div className="space-y-3">
+                    <div className="relative">
+                      <Input
+                        id="photos"
+                        name="photos"
+                        type="file"
+                        multiple
+                        accept="image/*"
+                        onChange={handleFileChange}
+                        className="hidden"
+                      />
+                      <label
+                        htmlFor="photos"
+                        className="flex items-center justify-center w-full h-32 border-2 border-dashed border-muted-foreground/25 rounded-lg cursor-pointer hover:border-muted-foreground/50 transition-colors"
+                      >
+                        <div className="text-center">
+                          <Upload className="w-6 h-6 mx-auto mb-2 text-muted-foreground" />
+                          <p className="text-sm text-muted-foreground">
+                            Click to upload photos or drag and drop
+                          </p>
+                          <p className="text-xs text-muted-foreground mt-1">
+                            PNG, JPG up to 10MB each (max 5 photos)
+                          </p>
+                        </div>
+                      </label>
+                    </div>
+                    
+                    {selectedFiles.length > 0 && (
+                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        {selectedFiles.map((file, index) => (
+                          <div key={index} className="relative group">
+                            <div className="aspect-square bg-muted rounded-lg overflow-hidden">
+                              <img
+                                src={URL.createObjectURL(file)}
+                                alt={`Garage photo ${index + 1}`}
+                                className="w-full h-full object-cover"
+                              />
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => removeFile(index)}
+                              className="absolute -top-2 -right-2 bg-destructive text-destructive-foreground rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                            >
+                              <X className="w-3 h-3" />
+                            </button>
+                            <p className="text-xs text-muted-foreground mt-1 truncate">
+                              {file.name}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <div>
