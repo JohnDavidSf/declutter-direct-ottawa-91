@@ -249,7 +249,7 @@ const Contact = () => {
                   </Button>
                 </a>
                 <p className="text-sm mt-3 opacity-75">
-                  Available Mon-Sat, 8AM-6PM
+                  /* test */
                 </p>
               </CardContent>
             </Card>
