@@ -111,7 +111,7 @@ const Contact = () => {
                     required
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="(613) 555-5555"
+                    placeholder="(613) 712-4848"
                   />
                 </div>
 
@@ -245,7 +245,7 @@ const Contact = () => {
                 </p>
                 <a href="tel:613-555-0199" className="block">
                   <Button size="lg" variant="secondary" className="w-full text-xl font-bold">
-                    (613) 555-5555
+                    (613) 712-4848
                   </Button>
                 </a>
                 <p className="text-sm mt-3 opacity-75">
@@ -264,7 +264,7 @@ const Contact = () => {
                   <Phone className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
                   <div>
                     <p className="font-medium">Phone</p>
-                    <p className="text-muted-foreground">(613) 555-5555</p>
+                    <p className="text-muted-foreground">(613) 712-4848</p>
                   </div>
                 </div>
 

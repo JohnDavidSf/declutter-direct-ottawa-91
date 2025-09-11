@@ -209,7 +209,7 @@ const Pricing = () => {
             <a href="tel:613-555-0199">
               <Button size="lg" variant="outline">
                 <Phone className="w-4 h-4 mr-2" />
-                Call Now: (613) 555-5555
+                Call Now: (613) 712-4848
               </Button>
             </a>
           </div>

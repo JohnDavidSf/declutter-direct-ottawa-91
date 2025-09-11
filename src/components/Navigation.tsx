@@ -56,7 +56,7 @@ const Navigation = () => {
             <a href="tel:613-555-0199" className="hidden lg:block">
               <Button variant="outline" size="sm">
                 <Phone className="w-4 h-4 mr-2" />
-                (613) 555-5555
+                (613) 712-4848
               </Button>
             </a>
             <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>
