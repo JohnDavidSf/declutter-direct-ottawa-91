@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import { CheckCircle, Package, Recycle, Sparkles, Archive, Trash2 } from "lucide-react";
+import Link from "@/components/AppLink";import { CheckCircle, Package, Recycle, Sparkles, Archive, Trash2 } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -28,7 +27,7 @@ const Services = () => {
     {
       icon: <Trash2 className="w-8 h-8 text-accent" />,
       title: "Final Clean Sweep of the Garage",
-      description: "We finish with a thorough cleaning of your entire garage, leaving it spotless and ready to enjoy."
+      description: "We finish with a thorough cleaning of your entire garage, leaving it spotless and ready to park your vehicle."
     }
   ];
 
@@ -69,67 +68,7 @@ const Services = () => {
         </div>
 
         {/* Process Timeline */}
-        <div className="bg-secondary p-12 rounded-lg mb-16">
-          <h2 className="text-4xl font-bold text-primary text-center mb-12">
-            Our Proven Process
-          </h2>
-          
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-8">
-              <div className="flex items-start space-x-4">
-                <div className="bg-accent text-accent-foreground w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-1">
-                  1
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Free Consultation & Quote</h3>
-                  <p className="text-muted-foreground">
-                    We visit your home to assess your garage and provide a transparent, 
-                    flat-fee quote with no hidden costs.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="bg-accent text-accent-foreground w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-1">
-                  2
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Scheduled Service Day</h3>
-                  <p className="text-muted-foreground">
-                    Our professional team arrives on time with all necessary equipment 
-                    and gets to work immediately.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="bg-accent text-accent-foreground w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-1">
-                  3
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Complete Transformation</h3>
-                  <p className="text-muted-foreground">
-                    We follow our 5-step process to completely transform your garage 
-                    from cluttered to organized in one day.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="bg-accent text-accent-foreground w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 mt-1">
-                  4
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Final Walkthrough</h3>
-                  <p className="text-muted-foreground">
-                    We walk through the completed project with you to ensure everything 
-                    meets your expectations before we leave.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
         {/* Additional Services */}
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
@@ -198,15 +137,15 @@ const Services = () => {
             Ready to Get Started?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-            Transform your garage with our professional service. 
-            Get your free quote today with our flat fee guarantee.
+            Transform your garage with our professional service. Park your vehicle indoors this winter!
+            
           </p>
           <Link 
-  to="/contact" 
+  to="/Pricing" 
   onClick={() => window.scrollTo(0, 0)}
 >
   <Button size="lg" variant="secondary" className="shadow-hero">
-    Get Your Free Quote
+    Flat-fee guarantee
   </Button>
 </Link>
         </div>

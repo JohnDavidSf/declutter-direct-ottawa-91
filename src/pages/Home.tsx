@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import Link from "@/components/AppLink";import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Clock, DollarSign, Recycle } from "lucide-react";
-import heroImage from "@/assets/hero-image.jpg";
-import garageBefore from "@/assets/garage-before.jpg";
+import heroImage from "@/assets/hero-image.png";
+import garageBefore from "@/assets/garage-before.png";
 import garageAfter from "@/assets/garage-after.jpg";
 
 const Home = () => {
@@ -24,11 +23,11 @@ const Home = () => {
                 We'll transform your cluttered garage into an organized space you'll love.
               </p>
               <Link 
-  to="/contact" 
+  to="/Pricing" 
   onClick={() => window.scrollTo(0, 0)}
 >
                 <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-hero">
-                  Get Your Free Quote – Flat Fee Guarantee
+                  See how it works – Flat Fee Guarantee
                 </Button>
               </Link>
             </div>
@@ -82,7 +81,7 @@ const Home = () => {
                 <div className="p-6 bg-success/10">
                   <h3 className="text-2xl font-bold text-success mb-2">After</h3>
                   <p className="text-muted-foreground">
-                    Clean, organized, and ready to be enjoyed by your family.
+                    Clean, organized, and ready to be enjoyed by your vehicle.
                   </p>
                 </div>
               </CardContent>
@@ -114,7 +113,7 @@ const Home = () => {
             <Card className="text-center p-6 shadow-card">
               <CardContent className="pt-6">
                 <Clock className="w-12 h-12 text-accent mx-auto mb-4" />
-                <h3 className="text-xl font-bold mb-2">Same Day Service</h3>
+                <h3 className="text-xl font-bold mb-2">One Day Service</h3>
                 <p className="text-muted-foreground">
                   Complete transformation in just one day.
                 </p>
@@ -159,7 +158,7 @@ const Home = () => {
   onClick={() => window.scrollTo(0, 0)}
 >
             <Button size="lg" variant="secondary" className="shadow-hero">
-              Get Your Free Quote Today
+              Contact Us Today
             </Button>
           </Link>
         </div>

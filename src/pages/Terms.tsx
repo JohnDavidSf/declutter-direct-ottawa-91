@@ -30,9 +30,9 @@ const Terms = () => {
             <section>
               <h3 className="text-xl font-bold text-primary mb-4">2. Pricing and Payment</h3>
               <p>
-                Our flat-fee pricing is provided after an in-person consultation. Payment is due 
+                Our flat-fee pricing is provided after a consultation. Payment is due 
                 upon completion of services unless other arrangements have been made in writing. 
-                We accept cash, check, and major credit cards.
+                
               </p>
             </section>
 

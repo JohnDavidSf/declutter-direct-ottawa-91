@@ -1,371 +1,210 @@
-import { useState } from "react";
+// src/pages/Contact.tsx
+import Link from "@/components/AppLink";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock, CheckCircle, Upload, X } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { MessageSquare, ExternalLink, Phone, ArrowRight, Info } from "lucide-react";
+import React from "react";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    address: "",
-    message: ""
-  });
-  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
-  const { toast } = useToast();
+// Simple Facebook "f" icon (brand-safe)
+const FbIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" {...props}>
+    <path
+      fill="currentColor"
+      d="M22 12.06C22 6.5 17.52 2 11.94 2 6.37 2 2 6.5 2 12.06 2 17.08 5.66 21.21 10.44 22v-7.02H7.9v-2.92h2.54v-2.2c0-2.5 1.49-3.89 3.77-3.89 1.1 0 2.26.2 2.26.2v2.48h-1.27c-1.25 0-1.64.78-1.64 1.57v1.84h2.79l-.45 2.92h-2.34V22C18.34 21.21 22 17.08 22 12.06Z"
+    />
+  </svg>
+);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const fileCount = selectedFiles.length;
-    const fileText = fileCount > 0 ? ` with ${fileCount} photo${fileCount > 1 ? 's' : ''}` : '';
-    toast({
-      title: "Quote Request Received!",
-      description: `We'll contact you within 24 hours to schedule your free consultation${fileText}.`,
-    });
-    setFormData({ name: "", phone: "", email: "", address: "", message: "" });
-    setSelectedFiles([]);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files || []);
-    const validFiles = files.filter(file => {
-      const isValidType = file.type.startsWith('image/');
-      const isValidSize = file.size <= 10 * 1024 * 1024; // 10MB limit
-      return isValidType && isValidSize;
-    });
-    
-    if (validFiles.length !== files.length) {
-      toast({
-        title: "Invalid Files",
-        description: "Please select only image files under 10MB each.",
-        variant: "destructive"
-      });
-    }
-    
-    setSelectedFiles(prev => [...prev, ...validFiles].slice(0, 5)); // Max 5 files
-  };
-
-  const removeFile = (index: number) => {
-    setSelectedFiles(prev => prev.filter((_, i) => i !== index));
-  };
+export default function Contact() {
+  const fbUrl = "https://www.facebook.com/people/Declutter-Direct/61581353731958/#";
+  const phoneDigits = "16137124848";
+  const telHref = `tel:+${phoneDigits}`;
+  const smsHref = `sms:+${phoneDigits}?&body=${encodeURIComponent(
+    "Hi, I'd like to text photos of my garage for a flat-fee cleanout."
+  )}`;
 
   return (
-    <div className="min-h-screen py-20">
-      <div className="container mx-auto px-4">
-        {/* Hero Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-primary mb-6">
-            Get Your Free Quote
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to transform your garage? Contact us today for a free consultation 
-            and transparent, flat-fee quote with no obligation.
-          </p>
-        </div>
+    <div className="min-h-screen">
+      {/* HERO STRIP */}
+      <section className="bg-gradient-to-b from-muted/40 to-background">
+        <div className="container mx-auto px-4 py-16">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl sm:text-5xl font-bold text-primary">Contact</h1>
 
-        <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          {/* Contact Form */}
+            {/* Price teaser chip */}
+            <div className="mt-4">
+              <Link to="/pricing" aria-label="See $499 pricing">
+                <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-sm">
+                  <Info className="w-4 h-4" />
+                  Most standard garages are <strong>$499</strong> — see details
+                </span>
+              </Link>
+            </div>
+
+            {/* Make this line more visible + add fast-response note */}
+            <p className="mt-5 text-base text-muted-foreground">
+              <span className="font-semibold text-foreground">Fastest ways to reach us:</span> send photos on Facebook or by text.{" "}
+              <span className="text-foreground">We usually reply within minutes during business hours.</span>
+            </p>
+
+            {/* Primary CTAs */}
+            <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href={fbUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Message on Facebook"
+                className="w-full sm:w-auto"
+              >
+                <Button size="lg" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                  {/* “Message on” + Facebook icon + label */}
+                  <span className="inline-flex items-center">
+                    Message on&nbsp;
+                    <span className="inline-flex items-center font-semibold">
+                      <FbIcon className="w-4 h-4 mr-1" />
+                      Facebook
+                    </span>
+                  </span>
+                  <ExternalLink className="w-4 h-4 ml-2 opacity-80" />
+                </Button>
+              </a>
+
+              <a href={smsHref} aria-label="Text photos" className="w-full sm:w-auto">
+                <Button size="lg" variant="outline" className="w-full">
+                  <MessageSquare className="w-4 h-4 mr-2" />
+                  Text Photos
+                </Button>
+              </a>
+            </div>
+
+            {/* Secondary tiny action */}
+            <div className="mt-3">
+              <a href={telHref} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                Prefer a quick call? <span className="underline">+1 (613) 712-4848</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTENT GRID */}
+      <section className="container mx-auto px-4 py-14">
+        <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+          {/* How it works */}
           <Card className="shadow-card">
             <CardHeader>
-              <CardTitle className="text-2xl">Request Your Free Quote</CardTitle>
-              <p className="text-muted-foreground">
-                Fill out the form below and we'll contact you within 24 hours to schedule 
-                your free consultation.
-              </p>
+              <CardTitle className="text-3xl">How it works</CardTitle>
             </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                    Full Name *
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder="Enter your full name"
-                  />
-                </div>
+            <CardContent className="pt-0">
+              <ol className="space-y-3 text-foreground">
+                <li>
+                  <span className="font-semibold">1.</span> Take 2–4 clear photos of your garage.
+                </li>
+                <li>
+                  <span className="font-semibold">2.</span> Send them on Facebook or by text.
+                </li>
+                <li>
+                  <span className="font-semibold">3.</span> We confirm and reply with a date.
+                </li>
+              </ol>
 
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
-                    Phone Number *
-                  </label>
-                  <Input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="(613) 712-4848"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                    Email Address *
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="address" className="block text-sm font-medium text-foreground mb-2">
-                    Address *
-                  </label>
-                  <Input
-                    id="address"
-                    name="address"
-                    type="text"
-                    required
-                    value={formData.address}
-                    onChange={handleChange}
-                    placeholder="Your address in Ottawa-Gatineau area"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="photos" className="block text-sm font-medium text-foreground mb-2">
-                    Photos of Your Garage (Optional)
-                  </label>
-                  <div className="space-y-3">
-                    <div className="relative">
-                      <Input
-                        id="photos"
-                        name="photos"
-                        type="file"
-                        multiple
-                        accept="image/*"
-                        onChange={handleFileChange}
-                        className="hidden"
-                      />
-                      <label
-                        htmlFor="photos"
-                        className="flex items-center justify-center w-full h-32 border-2 border-dashed border-muted-foreground/25 rounded-lg cursor-pointer hover:border-muted-foreground/50 transition-colors"
-                      >
-                        <div className="text-center">
-                          <Upload className="w-6 h-6 mx-auto mb-2 text-muted-foreground" />
-                          <p className="text-sm text-muted-foreground">
-                            Click to upload photos or drag and drop
-                          </p>
-                          <p className="text-xs text-muted-foreground mt-1">
-                            PNG, JPG up to 10MB each (max 5 photos)
-                          </p>
-                        </div>
-                      </label>
-                    </div>
-                    
-                    {selectedFiles.length > 0 && (
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-                        {selectedFiles.map((file, index) => (
-                          <div key={index} className="relative group">
-                            <div className="aspect-square bg-muted rounded-lg overflow-hidden">
-                              <img
-                                src={URL.createObjectURL(file)}
-                                alt={`Garage photo ${index + 1}`}
-                                className="w-full h-full object-cover"
-                              />
-                            </div>
-                            <button
-                              type="button"
-                              onClick={() => removeFile(index)}
-                              className="absolute -top-2 -right-2 bg-destructive text-destructive-foreground rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
-                            >
-                              <X className="w-3 h-3" />
-                            </button>
-                            <p className="text-xs text-muted-foreground mt-1 truncate">
-                              {file.name}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                    Tell us about your garage
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    rows={4}
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Describe your garage size, current condition, and any specific needs or questions..."
-                  />
-                </div>
-
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"
+              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+                <a href={smsHref} aria-label="Text photos" className="w-full sm:w-auto">
+                  <Button variant="outline" className="w-full">
+                    <MessageSquare className="w-4 h-4 mr-2" />
+                    Text Photos
+                  </Button>
+                </a>
+                <a
+                  href={fbUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Message on Facebook"
+                  className="w-full sm:w-auto"
                 >
-                  Get My Free Quote
-                </Button>
-              </form>
+                  <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+                    <span className="inline-flex items-center">
+                      Message on&nbsp;
+                      <span className="inline-flex items-center font-semibold">
+                        <FbIcon className="w-4 h-4 mr-1" />
+                        Facebook
+                      </span>
+                    </span>
+                    <ExternalLink className="w-4 h-4 ml-2 opacity-80" />
+                  </Button>
+                </a>
+              </div>
+
+              <div className="mt-5 text-sm text-muted-foreground">
+                We also quote <span className="text-foreground font-medium">micro spaces (sheds)</span> and{" "}
+                <span className="text-foreground font-medium">large spaces (barns / RV or boat garages)</span>.
+              </div>
+
+              <div className="mt-6 flex items-center gap-2">
+                <Link
+                  to="/services"
+                  className="inline-flex items-center underline underline-offset-4 hover:text-accent transition-colors"
+                >
+                  Wondering how it works? See the 5-step process
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
+                <span className="text-muted-foreground">·</span>
+                <Link
+                  to="/pricing"
+                  className="inline-flex items-center underline underline-offset-4 hover:text-accent transition-colors"
+                >
+                  Then check pricing
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </Link>
+              </div>
             </CardContent>
           </Card>
 
-          {/* Contact Information */}
-          <div className="space-y-8">
-            {/* Quick Call */}
-            <Card className="shadow-card bg-accent text-accent-foreground">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center">
-                  <Phone className="w-6 h-6 mr-3" />
-                  Call Now for Immediate Service
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg mb-4 opacity-90">
-                  Speak directly with our team for fastest response:
-                </p>
-                <a href="tel:613-555-0199" className="block">
-                  <Button size="lg" variant="secondary" className="w-full text-xl font-bold">
-                    (613) 712-4848
-                  </Button>
-                </a>
-                <p className="text-sm mt-3 opacity-75">
-                 Available Anytime
-                </p>
-              </CardContent>
-            </Card>
+          {/* Quick info */}
+          <Card className="shadow-card">
+            <CardHeader>
+              <CardTitle className="text-2xl">Quick info</CardTitle>
+            </CardHeader>
+            <CardContent className="pt-0 text-muted-foreground space-y-3">
+              <p>Service area: Ottawa–Gatineau and surrounding communities.</p>
+              <p>Hours: 8:00 AM – 8:00 PM.</p>
+              <p>
+                Most standard garages are <Link to="/pricing" className="text-foreground underline">$499</Link>. Sheds and
+                larger spaces like barns get a simple custom quote.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
-            {/* Contact Details */}
-            <Card className="shadow-card">
-              <CardHeader>
-                <CardTitle className="text-2xl">Contact Information</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start space-x-3">
-                  <Phone className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">Phone</p>
-                    <p className="text-muted-foreground">(613) 712-4848</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <Mail className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">Email</p>
-                    <p className="text-muted-foreground">info@declutterdirect.ca</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">Service Area</p>
-                    <p className="text-muted-foreground">
-                      Ottawa-Gatineau Metropolitan Area<br />
-                      Including Kanata, Orleans, Barrhaven, Nepean, and surrounding communities
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <Clock className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-medium">Business Hours</p>
-                    <p className="text-muted-foreground">
-                    8:00 AM - 8:00 PM
-                      
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* What to Expect */}
-            <Card className="shadow-card">
-              <CardHeader>
-                <CardTitle className="text-xl">What to Expect</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium">24-Hour Response</p>
-                      <p className="text-sm text-muted-foreground">We'll contact you within 24 hours</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium">Free Consultation</p>
-                      <p className="text-sm text-muted-foreground">No-obligation garage assessment</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <CheckCircle className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium">Transparent Quote</p>
-                      <p className="text-sm text-muted-foreground">Clear, flat-fee pricing with no hidden costs</p>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+      {/* SERVICE AREA */}
+      <section className="bg-secondary py-14">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-4xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold text-primary">Proudly Serving Ottawa–Gatineau</h2>
+            <p className="mt-3 text-xl text-muted-foreground">
+              We cover the National Capital Region and nearby communities.
+            </p>
+            <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-4 text-muted-foreground">
+              <div>Ottawa</div>
+              <div>Gatineau</div>
+              <div>Kanata</div>
+              <div>Orleans</div>
+              <div>Barrhaven</div>
+              <div>Nepean</div>
+              <div>Gloucester</div>
+              <div>Cumberland</div>
+              <div>Rockland</div>
+              <div>Stittsville</div>
+              <div>Manotick</div>
+              <div>Osgoode</div>
+            </div>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Don’t see your community listed? Message us — we likely serve your area too.
+            </p>
           </div>
         </div>
-
-        {/* Service Area Map Description */}
-        <div className="bg-secondary p-12 rounded-lg text-center">
-          <h2 className="text-4xl font-bold text-primary mb-6">
-            Proudly Serving Ottawa-Gatineau
-          </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-            We provide professional garage cleanout services throughout the National Capital Region, 
-            including Ottawa, Gatineau, and all surrounding communities.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto text-muted-foreground">
-            <div>Ottawa</div>
-            <div>Gatineau</div>
-            <div>Kanata</div>
-            <div>Orleans</div>
-            <div>Barrhaven</div>
-            <div>Nepean</div>
-            <div>Gloucester</div>
-            <div>Cumberland</div>
-            <div>Rockland</div>
-            <div>Stittsville</div>
-            <div>Manotick</div>
-            <div>Osgoode</div>
-          </div>
-          <p className="text-sm text-muted-foreground mt-6">
-            Don't see your community listed? Contact us – we likely serve your area too!
-          </p>
-        </div>
-      </div>
+      </section>
     </div>
   );
-};
-
-export default Contact;
+}

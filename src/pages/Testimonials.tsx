@@ -1,7 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import { Star, Quote } from "lucide-react";
+import Link from "@/components/AppLink";import { Star, Quote } from "lucide-react";
 
 const Testimonials = () => {
   const testimonials = [
