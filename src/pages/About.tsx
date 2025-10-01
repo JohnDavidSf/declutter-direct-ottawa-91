@@ -4,7 +4,7 @@ import Link from "@/components/AppLink";import { Users, Award, Shield, Heart } f
 
 const About = () => {
   return (
-    <div className="min-h-screen py-20">
+    <div className="min-h-screen py-10 md:py-20">
       <div className="container mx-auto px-4">
         {/* Hero Section */}
         <div className="text-center mb-16">

@@ -101,7 +101,7 @@ const Privacy = () => {
               <h3 className="text-xl font-bold text-primary mb-4">Contact Us</h3>
               <p>
                 If you have questions about this privacy policy or our data practices, please 
-                contact us at (613) 712-4848 or info@declutterdirect.ca.
+                contact us at (613) 661-1888 or info@declutterdirect.ca.
               </p>
             </section>
           </CardContent>

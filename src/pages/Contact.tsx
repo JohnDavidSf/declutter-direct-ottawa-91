@@ -17,7 +17,7 @@ const FbIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 export default function Contact() {
   const fbUrl = "https://www.facebook.com/people/Declutter-Direct/61581353731958/#";
-  const phoneDigits = "16137124848";
+  const phoneDigits = "16136611888";
   const telHref = `tel:+${phoneDigits}`;
   const smsHref = `sms:+${phoneDigits}?&body=${encodeURIComponent(
     "Hi, I'd like to text photos of my garage for a flat-fee cleanout."
@@ -27,7 +27,7 @@ export default function Contact() {
     <div className="min-h-screen">
       {/* HERO STRIP */}
       <section className="bg-gradient-to-b from-muted/40 to-background">
-        <div className="container mx-auto px-4 py-16">
+        <div className="container mx-auto px-4 py-10 md:py-20">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl font-bold text-primary">Contact</h1>
 
@@ -80,7 +80,7 @@ export default function Contact() {
             {/* Secondary tiny action */}
             <div className="mt-3">
               <a href={telHref} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                Prefer a quick call? <span className="underline">+1 (613) 712-4848</span>
+                Prefer a quick call? <span className="underline">+1 (613) 661-1888</span>
               </a>
             </div>
           </div>

@@ -1,15 +1,17 @@
 import Link from "@/components/AppLink";import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Clock, DollarSign, Recycle } from "lucide-react";
-import heroImage from "@/assets/hero-image.png";
+const heroImage = "/hero-image.jpg";
 import garageBefore from "@/assets/garage-before.png";
 import garageAfter from "@/assets/garage-after.jpg";
 
 const Home = () => {
+  
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-hero text-primary-foreground py-20">
+      
+      <section className="bg-gradient-hero text-primary-foreground py-5 md:py-20">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -19,9 +21,9 @@ const Home = () => {
                 <span className="text-accent">One clean garage.</span>
               </h1>
               <p className="text-xl mb-8 text-primary-foreground/90">
-                Professional garage cleanout service in Ottawa-Gatineau. 
-                We'll transform your cluttered garage into an organized space you'll love.
-              </p>
+  Park your vehicle inside this winter—skip the 7 AM ice scraper and frozen fingers. We’ll clear the clutter and give your garage back.
+</p>
+
               <Link 
   to="/Pricing" 
   onClick={() => window.scrollTo(0, 0)}
@@ -43,7 +45,7 @@ const Home = () => {
       </section>
 
       {/* Before/After Section */}
-      <section className="py-20 bg-secondary">
+      <section className="py-5 md:py-20 bg-secondary">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-primary mb-4">
