@@ -1,3 +1,4 @@
+// src/App.tsx
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -18,52 +19,55 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-// ✅ Facebook Pixel page-view tracker
+// fbq typing
 declare global {
   interface Window {
     fbq?: (...args: any[]) => void;
   }
 }
 
+// hook must run INSIDE router
 function useFacebookPageView() {
   const location = useLocation();
   useEffect(() => {
-    if (window.fbq) {
-      window.fbq("track", "PageView");
-    }
+    if (window.fbq) window.fbq("track", "PageView");
   }, [location.pathname]);
 }
 
-const App = () => {
+// child rendered under <BrowserRouter>
+function AppShell() {
   useFacebookPageView();
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navigation />
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </main>
+      <Footer />
+    </div>
+  );
+}
 
+export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <div className="min-h-screen flex flex-col">
-            <Navigation />
-            <main className="flex-grow">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/pricing" element={<Pricing />} />
-                <Route path="/testimonials" element={<Testimonials />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/terms" element={<Terms />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
+          <AppShell />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
   );
-};
-
-export default App;
+}
