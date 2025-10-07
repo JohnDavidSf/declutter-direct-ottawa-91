@@ -16,7 +16,7 @@ const FbIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 export default function Contact() {
-  const fbUrl = "https://www.facebook.com/people/Declutter-Direct/61581353731958/#";
+  const fbUrl = "https://m.me/61581353731958";
   const phoneDigits = "16136611888";
   const telHref = `tel:+${phoneDigits}`;
   const smsHref = `sms:+${phoneDigits}?&body=${encodeURIComponent(
