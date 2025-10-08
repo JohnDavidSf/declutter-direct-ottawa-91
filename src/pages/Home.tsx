@@ -157,7 +157,7 @@ const Home = () => {
             their garages with our professional service.
           </p>
           <Link 
-  to="/contact" 
+  to="/services" 
   onClick={() => window.scrollTo(0, 0)}
 >
             <Button size="lg" variant="secondary" className="shadow-hero">
