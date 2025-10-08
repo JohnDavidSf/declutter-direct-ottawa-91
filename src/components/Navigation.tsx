@@ -138,7 +138,7 @@ export default function Navigation() {
                 </AppNavLink>
               ))}
 
-              <AppLink to="/contact">
+              <AppLink to="/services">
                 <Button className="mt-2 w-full" variant="outline">
                   Free Quote
                 </Button>
