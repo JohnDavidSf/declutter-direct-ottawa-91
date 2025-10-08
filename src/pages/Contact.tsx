@@ -32,14 +32,7 @@ export default function Contact() {
             <h1 className="text-4xl sm:text-5xl font-bold text-primary">Contact</h1>
 
             {/* Price teaser chip */}
-            <div className="mt-4">
-              <Link to="/pricing" aria-label="See $499 pricing">
-                <span className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-4 py-1.5 text-sm">
-                  <Info className="w-4 h-4" />
-                  Most standard garages are <strong>$499</strong> — see details
-                </span>
-              </Link>
-            </div>
+           
 
             {/* Make this line more visible + add fast-response note */}
             <p className="mt-5 text-base text-muted-foreground">
@@ -148,14 +141,8 @@ export default function Contact() {
                   Wondering how it works? See the 5-step process
                   <ArrowRight className="w-4 h-4 ml-1" />
                 </Link>
-                <span className="text-muted-foreground">·</span>
-                <Link
-                  to="/pricing"
-                  className="inline-flex items-center underline underline-offset-4 hover:text-accent transition-colors"
-                >
-                  Then check pricing
-                  <ArrowRight className="w-4 h-4 ml-1" />
-                </Link>
+               
+                
               </div>
             </CardContent>
           </Card>
@@ -168,10 +155,7 @@ export default function Contact() {
             <CardContent className="pt-0 text-muted-foreground space-y-3">
               <p>Service area: Ottawa–Gatineau and surrounding communities.</p>
               <p>Hours: 8:00 AM – 8:00 PM.</p>
-              <p>
-                Most standard garages are <Link to="/pricing" className="text-foreground underline">$499</Link>. Sheds and
-                larger spaces like barns get a simple custom quote.
-              </p>
+             
             </CardContent>
           </Card>
         </div>

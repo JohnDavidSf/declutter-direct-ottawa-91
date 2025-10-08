@@ -176,7 +176,7 @@ const Testimonials = () => {
             that our customers rave about. Get your free quote today!
           </p>
           <Link 
-  to="/contact" 
+  to="/services" 
   onClick={() => window.scrollTo(0, 0)}
 >
   <Button size="lg" variant="secondary" className="shadow-hero">

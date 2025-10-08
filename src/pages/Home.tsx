@@ -11,7 +11,7 @@ const Home = () => {
     <div className="min-h-screen">
       {/* Hero Section */}
       
-      <section className="bg-gradient-hero text-primary-foreground py-5 md:py-20">
+      <section className="bg-gradient-hero text-primary-foreground py-10 md:py-20">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -22,10 +22,11 @@ const Home = () => {
               </h1>
               <p className="text-xl mb-8 text-primary-foreground/90">
   Park your vehicle inside this winter—skip the 7 AM ice scraper and frozen fingers. We’ll clear the clutter and give your garage back.
+  
 </p>
 
               <Link 
-  to="/Pricing" 
+  to="/Services" 
   onClick={() => window.scrollTo(0, 0)}
 >
                 <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground shadow-hero">

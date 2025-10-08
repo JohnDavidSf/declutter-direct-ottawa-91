@@ -26,6 +26,7 @@ export default function Pricing() {
     "Complete cleanout and basic organization",
     "Sorting: keep / donate / recycle / dispose",
     "Donation and disposal handling",
+    <strong>Donation and disposal handling</strong>,
     "Final sweep of the garage",
     "All labor, equipment, and disposal fees",
   ];
@@ -45,7 +46,7 @@ export default function Pricing() {
           <Card className="shadow-hero border-2 border-accent">
             <CardHeader className="bg-accent text-accent-foreground py-3 px-4 sm:px-6">
               <CardTitle className="text-2xl sm:text-3xl">Flat Fee Guarantee</CardTitle>
-              <p className="text-sm opacity-90">Most standard garages completed for one clear price</p>
+              <p className="text-sm opacity-90">Garages completed for one clear price</p>
             </CardHeader>
 
             <CardContent className="p-4 sm:p-6">
@@ -58,8 +59,8 @@ export default function Pricing() {
                       <CheckCircle className="w-5 h-5 text-accent mr-3 mt-0.5" />
                       <span className="text-foreground"><strong>Labeled storage boxes included</strong></span>
                     </li>
-                    {included.map((item) => (
-                      <li key={item} className="flex items-start">
+                    {included.map((item, index) => (
+                      <li key={index} className="flex items-start">
                         <CheckCircle className="w-5 h-5 text-accent mr-3 mt-0.5" />
                         <span className="text-foreground">{item}</span>
                       </li>
@@ -67,10 +68,10 @@ export default function Pricing() {
                   </ul>
 
                   {/* Price badge moved here */}
-                  <div className="mt-5 inline-flex items-baseline rounded-full border border-green-400/40 bg-green-100/40 px-6 py-2">
-                    <span className="text-3xl sm:text-4xl font-extrabold leading-none text-foreground">$499</span>
-                    <span className="ml-2 text-sm text-foreground/80">standard garage flat fee</span>
-                  </div>
+                 {/* <div className="mt-5 inline-flex items-baseline rounded-full border border-green-400/40 bg-green-100/40 px-6 py-2">
+                    <span className="text-3xl sm:text-4xl font-extrabold leading-none text-foreground">Lowest Price Guarantee</span>
+                     <span className="ml-2 text-sm text-foreground/80">standard garage flat fee</span>
+                  </div> */}
                   <p className="mt-2 text-xs sm:text-sm text-muted-foreground">
                     Our “save-your-back” special — we lift, you enjoy a cold drink.
                   </p>
@@ -82,7 +83,7 @@ export default function Pricing() {
                   <ol className="space-y-3 text-foreground text-sm sm:text-base">
                     <li><span className="font-semibold">1.</span> Take 2–4 clear photos of your garage.</li>
                     <li><span className="font-semibold">2.</span> Send them by text or Facebook message.</li>
-                    <li><span className="font-semibold">3.</span> We confirm and reply with a date.</li>
+                    <li><span className="font-semibold">3.</span> We confirm a price and reply with a date.</li>
                   </ol>
 
                   <div className="mt-4 flex flex-col sm:flex-row gap-2 sm:gap-3">
@@ -118,7 +119,7 @@ export default function Pricing() {
         </div>
       </section>
 
-      {/* What Can Change Scope (unchanged content, tighter spacing) */}
+      {/* What Can Change Scope (unchanged content, tighter spacing) 
       <section className="container mx-auto px-4 pb-10">
         <div className="max-w-5xl mx-auto">
           <Card className="shadow-card">
@@ -146,7 +147,7 @@ export default function Pricing() {
             </CardContent>
           </Card>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

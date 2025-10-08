@@ -52,7 +52,7 @@ const About = () => {
               organization service that transforms cluttered spaces into 
               functional areas that enhance their daily lives.
             </p>
-            <Link to="/contact">
+            <Link to="/services">
               <Button className="bg-accent hover:bg-accent/90 text-accent-foreground">
                 Start Your Transformation
               </Button>
